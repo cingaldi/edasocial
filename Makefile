@@ -3,3 +3,6 @@ run: run-infra
 
 run-infra:
 	docker-compose -f ./environments/dev/docker-compose-infra.yml up -d
+
+stop-infra:
+	docker-compose -f ./environments/dev/docker-compose-infra.yml stop
