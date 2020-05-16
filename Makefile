@@ -1,2 +1,2 @@
 run:
-	docker-compose -f ./environments/dev/docker-compose.yml up --build
+	docker-compose -f ./environments/dev/docker-compose-infra.yml -f ./environments/dev/docker-compose-app.yml up --build
