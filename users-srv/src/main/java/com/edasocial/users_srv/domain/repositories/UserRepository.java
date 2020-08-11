@@ -1,6 +1,6 @@
-package com.edasocial.users_srv.repositories;
+package com.edasocial.users_srv.domain.repositories;
 
-import com.edasocial.users_srv.entities.User;
+import com.edasocial.users_srv.domain.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Object> {

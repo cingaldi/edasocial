@@ -1,7 +1,7 @@
 package com.edasocial.users_srv.services;
 
-import com.edasocial.users_srv.entities.User;
-import com.edasocial.users_srv.repositories.UserRepository;
+import com.edasocial.users_srv.domain.entities.User;
+import com.edasocial.users_srv.domain.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.edasocial.users_srv.entities;
+package com.edasocial.users_srv.domain.entities;
 
 public class User {
 

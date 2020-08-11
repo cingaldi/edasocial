@@ -1,10 +1,9 @@
 package com.edasocial.users_srv.services;
 
-import com.edasocial.users_srv.entities.User;
-import com.edasocial.users_srv.repositories.UserRepository;
+import com.edasocial.users_srv.domain.entities.User;
+import com.edasocial.users_srv.domain.repositories.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.BlockJUnit4ClassRunner;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
