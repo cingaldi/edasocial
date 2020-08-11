@@ -17,7 +17,7 @@ public class UserService {
 
     public void createUser() {
 
-        userRepository.save(User.create());
+        User created = userRepository.save(User.create());
 
     }
 }
