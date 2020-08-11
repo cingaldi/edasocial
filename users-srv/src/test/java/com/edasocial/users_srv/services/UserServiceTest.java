@@ -25,7 +25,7 @@ public class UserServiceTest {
 
         UserService uut = new UserService(repository);
 
-        uut.createUser();
+        uut.createUser("carmine@email.com");
 
         var captor = ArgumentCaptor.forClass(User.class);
 

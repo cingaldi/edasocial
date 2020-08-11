@@ -15,9 +15,9 @@ public class UserService {
         this.userRepository = repository;
     }
 
-    public void createUser() {
+    public void createUser(String email) {
 
-        User created = userRepository.save(User.create());
+        User created = userRepository.save(User.create(email));
 
     }
 }

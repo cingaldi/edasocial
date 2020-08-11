@@ -5,6 +5,7 @@ import com.edasocial.users_srv.domain.events.UserCreatedEvent;
 import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.domain.DomainEvents;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,12 +18,20 @@ public class User extends AbstractAggregateRoot {
     @GeneratedValue
     private String id;
 
+    @Column(name = "email" , unique = true , length = 64)
+    private String email;
+
     public User() {
         registerEvent(new UserCreatedEvent());
     }
 
-    public static User create() {
-        return new User();
+    public User(String email) {
+        this();
+        this.email = email;
+    }
+
+    public static User create(String email) {
+        return new User(email);
     }
 
     @DomainEvents
