@@ -1,4 +1,4 @@
-package com.edasocial.users_srv.controllers;
+package com.edasocial.users_srv.users.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
