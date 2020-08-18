@@ -9,16 +9,31 @@ import java.util.Collection;
 
 public class Registration extends AbstractAggregateRoot {
 
-    private String token = "aa";
+    private RegistrationToken token;
 
     public static Registration create(String email) {
         Registration ret = new Registration();
-        ret.registerEvent(new RegistrationStartedEvent(email , ret.token));
+        ret.token = new RegistrationToken("aa");
+
+        ret.registerEvent(new RegistrationStartedEvent(email , ret.token.token()));
+        return ret;
+    }
+
+    public static Registration create(String email, UuidRegistrationTokenStrategy strategy) {
+        Registration ret = new Registration();
+        ret.token = strategy.create();
+
+        ret.registerEvent(new RegistrationStartedEvent(email , ret.token.token()));
+
         return ret;
     }
 
     @DomainEvents
     public Collection<DomainEvent> events() {
         return this.domainEvents();
+    }
+
+    public RegistrationToken registrationToken() {
+        return this.token;
     }
 }
