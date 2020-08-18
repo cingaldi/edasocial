@@ -30,7 +30,6 @@ public class UserServiceTest {
         verify(repository).save(captor.capture());
         assertThat(captor.getValue().events()).hasSize(1);
 
-
     }
 
 }
