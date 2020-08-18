@@ -2,21 +2,19 @@ package com.edasocial.users_srv.users.domain.entities;
 
 
 import com.edasocial.users_srv.users.domain.events.UserCreatedEvent;
+import org.springframework.cglib.core.GeneratorStrategy;
 import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.domain.DomainEvents;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity(name = "users")
 public class User extends AbstractAggregateRoot {
 
     @Id
-    @GeneratedValue
-    private String id;
+    @GeneratedValue( strategy= GenerationType.AUTO)
+    private Long id;
 
     @Column(name = "email" , unique = true , length = 64)
     private String email;
