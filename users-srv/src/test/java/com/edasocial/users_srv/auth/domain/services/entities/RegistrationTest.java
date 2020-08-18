@@ -1,6 +1,7 @@
 package com.edasocial.users_srv.auth.domain.services.entities;
 
 import com.edasocial.users_srv.auth.domain.entities.Registration;
+import com.edasocial.users_srv.auth.domain.entities.RegistrationStatusEnum;
 import com.edasocial.users_srv.auth.domain.entities.UuidRegistrationTokenStrategy;
 import com.edasocial.users_srv.auth.domain.events.RegistrationStartedEvent;
 import org.junit.Test;
@@ -18,7 +19,14 @@ public class RegistrationTest {
 
         var evt = ((RegistrationStartedEvent)uut.events().iterator().next());
         assertThat(evt.getEmail()).isEqualTo("carmine@gmail.com");
-        assertThat(evt.getRegistrationToken()).isNotEmpty();
+    }
+
+    @Test
+    public void when_register_then_status_pending() {
+
+        Registration uut = Registration.create("carmine@gmail.com");
+
+        assertThat(uut.withStatus(RegistrationStatusEnum.PENDING)).isTrue();
     }
 
     @Test

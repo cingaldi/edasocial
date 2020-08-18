@@ -10,6 +10,7 @@ import java.util.Collection;
 public class Registration extends AbstractAggregateRoot {
 
     private RegistrationToken token;
+    private RegistrationStatusEnum status = RegistrationStatusEnum.PENDING;
 
     public static Registration create(String email) {
         Registration ret = new Registration();
@@ -35,5 +36,9 @@ public class Registration extends AbstractAggregateRoot {
 
     public RegistrationToken registrationToken() {
         return this.token;
+    }
+
+    public boolean withStatus(RegistrationStatusEnum pending) {
+        return this.status.equals(pending);
     }
 }
