@@ -15,8 +15,9 @@ public class RegistrationTest {
 
         Registration uut = Registration.create("carmine@gmail.com");
 
-        assertThat(uut.events()).hasSize(1);
-        assertThat(((RegistrationStartedEvent)uut.events().iterator().next()).getEmail()).isEqualTo("carmine@gmail.com");
+        var evt = ((RegistrationStartedEvent)uut.events().iterator().next());
+        assertThat(evt.getEmail()).isEqualTo("carmine@gmail.com");
+        assertThat(evt.getRegistrationToken()).isNotEmpty();
     }
 
 }

@@ -8,9 +8,12 @@ import org.springframework.data.domain.DomainEvents;
 import java.util.Collection;
 
 public class Registration extends AbstractAggregateRoot {
+
+    private String token = "aa";
+
     public static Registration create(String email) {
         Registration ret = new Registration();
-        ret.registerEvent(new RegistrationStartedEvent(email));
+        ret.registerEvent(new RegistrationStartedEvent(email , ret.token));
         return ret;
     }
 
