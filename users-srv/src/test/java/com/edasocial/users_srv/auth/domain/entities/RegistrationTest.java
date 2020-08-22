@@ -1,4 +1,4 @@
-package com.edasocial.users_srv.auth.domain.services.entities;
+package com.edasocial.users_srv.auth.domain.entities;
 
 import com.edasocial.users_srv.auth.domain.entities.Registration;
 import com.edasocial.users_srv.auth.domain.entities.RegistrationStatusEnum;
@@ -7,7 +7,6 @@ import com.edasocial.users_srv.auth.domain.events.RegistrationStartedEvent;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 
 public class RegistrationTest {

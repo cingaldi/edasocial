@@ -1,4 +1,4 @@
-package com.edasocial.users_srv.users.services;
+package com.edasocial.users_srv.users.application;
 
 import com.edasocial.users_srv.users.domain.entities.User;
 import com.edasocial.users_srv.users.domain.repositories.UserRepository;
@@ -20,4 +20,5 @@ public class UserService {
         User created = userRepository.save(User.create(email));
 
     }
+
 }
