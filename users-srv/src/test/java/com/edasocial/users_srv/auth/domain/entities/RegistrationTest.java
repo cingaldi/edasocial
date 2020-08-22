@@ -14,19 +14,12 @@ public class RegistrationTest {
     @Test
     public void given_email_when_register_event_triggered()  {
 
-        Registration uut = Registration.create("carmine@gmail.com");
+        Registration uut = Registration.create("carmine@gmail.com" , new HardcodedRegistrationTokenStrategy());
 
         var evt = ((RegistrationStartedEvent)uut.events().iterator().next());
         assertThat(evt.getEmail()).isEqualTo("carmine@gmail.com");
     }
 
-    @Test
-    public void when_register_then_status_pending() {
-
-        Registration uut = Registration.create("carmine@gmail.com");
-
-        assertThat(uut.withStatus(RegistrationStatusEnum.PENDING)).isTrue();
-    }
 
     @Test
     public void given_token_generator_when_register_shuould_get_token () {
@@ -35,6 +28,7 @@ public class RegistrationTest {
 
         var evt = ((RegistrationStartedEvent)uut.events().iterator().next());
 
+        assertThat(uut.withStatus(RegistrationStatusEnum.PENDING)).isTrue();
         assertThat(evt.getRegistrationToken()).isEqualTo(uut.registrationToken().token());
     }
 

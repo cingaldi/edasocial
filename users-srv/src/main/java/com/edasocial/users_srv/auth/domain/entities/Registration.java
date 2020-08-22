@@ -12,15 +12,7 @@ public class Registration extends AbstractAggregateRoot {
     private RegistrationToken token;
     private RegistrationStatusEnum status = RegistrationStatusEnum.PENDING;
 
-    public static Registration create(String email) {
-        Registration ret = new Registration();
-        ret.token = new RegistrationToken("aa");
-
-        ret.registerEvent(new RegistrationStartedEvent(email , ret.token.token()));
-        return ret;
-    }
-
-    public static Registration create(String email, UuidRegistrationTokenStrategy strategy) {
+    public static Registration create(String email, RegistrationTokenStrategy strategy) {
         Registration ret = new Registration();
         ret.token = strategy.create();
 
